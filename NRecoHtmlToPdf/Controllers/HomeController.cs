@@ -116,10 +116,11 @@ namespace NReco_HtmlToPdf.Controllers
         {
             try
             {
-                model.Configurations.Margin = new Margin() { Bottom = "20", Top = "20", Left = "10", Right = "10" };
+                //model.Configurations.Margin = new Margin() { Bottom = "20", Top = "20", Left = "10", Right = "10" };
+                html = html.Replace("{LogoImg}", $"src='{System.Web.Hosting.HostingEnvironment.MapPath("~/assets/images/checklistlogo.png")}'" );
+
                 var htmlToPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
                 var footerHtmlPath = System.Web.Hosting.HostingEnvironment.MapPath("~/assets/CustomHTML/footer.html");
-                //htmlToPdf.PageFooterHtml = "<span style='background-color:yellow;'> Page [page] </span>";
                 htmlToPdf.CustomWkHtmlArgs = "--enable-local-file-access ";
                 //htmlToPdf.CustomWkHtmlArgs += ("--footer-center [page]");
                 htmlToPdf.CustomWkHtmlArgs += ("--footer-html " + footerHtmlPath);

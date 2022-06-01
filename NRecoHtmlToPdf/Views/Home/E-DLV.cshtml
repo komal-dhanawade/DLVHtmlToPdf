@@ -18,8 +18,10 @@
 
         /* CSS ADDED BY SUNIL - 20052022 */
         h1, h2, h3, h4, h5, h6, p, a, span, ul, li, b, table, th, td {
-            font: 11pt Arial;
+            font-family: Arial;
+            font-size: 11pt;
             text-align: justify;
+            letter-spacing: 1px;
         }
 
         p {
@@ -67,10 +69,6 @@
             margin-bottom: 2pt;
             color: #000 !important;
             word-wrap: break-word !important;
-        }
-
-        .miscelleneous-section {
-            padding-left: 8px !important;
         }
 
         .forAnexureTbl table tr:nth-child(1) td {
@@ -153,6 +151,12 @@
         }
         hr {
             display: none;
+        }
+        .paragraph-Title2 {
+            font-weight: bold;
+        }
+        .forLineSpacing p {
+            line-height: 33px;
         }
     </style>
 </head>
@@ -264,7 +268,7 @@
                                     </td>
                                     <td width=462 colspan=4 style='width:346.5pt;border-top:none;border-left:
     none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;height:12.5pt'>
-                                        <p class=MsoNormal><span style="font-weight: bold !important;">@Model.DLVTitle</span></p>
+                                        <p class=MsoNormal style="font-weight: bold !important;">@Model.DLVTitle</p>
                                     </td>
                                 </tr>
                             </table>
@@ -277,11 +281,7 @@
                                 Service Agreement (the &quot;Agreement&quot;) is entered into this <span style='color:black'>______________</span>
                                 by and between <span style="font-weight: bold;">SKODA AUTO Volkswagen India Private Limited </span>(formerly
                                 known as Volkswagen India Private Limited)<span style="font-weight: bold;">, </span>a Company incorporated under
-                                the Companies Act, 1956 and having its registered office at <a name="_MailAutoSig">
-                                    <span style='color:black'>
-                                        E1, MIDC Industrial Area, Phase III, Village Nigoje, Mhalunge Kharabwadi, Chakan, Tal Khed, Pune, Maharashtra &#45; 410501
-                                    </span>
-                                </a> having CIN No U70102PN2007FTC133117 (herein after referred to as &nbsp;<span style="font-weight: bold;"> "SAVWIPL" </span> &nbsp; or &quot;<span style="font-weight: bold;">Service Receiver</span> &quot; or &quot;<span style="font-weight: bold;">Customer</span>&quot;<span class=MsoCommentReference><span> </span></span>), which
+                                the Companies Act, 1956 and having its registered office at E1, MIDC Industrial Area, Phase III, Village Nigoje, Mhalunge Kharabwadi, Chakan, Tal Khed, Pune, Maharashtra - 410501  having CIN No U70102PN2007FTC133117 (herein after referred to as&nbsp;<span style="font-weight: bold;">"SAVWIPL" </span> &nbsp; or &quot;<span style="font-weight: bold;">Service Receiver</span> &quot; or &quot;<span style="font-weight: bold;">Customer</span>&quot;<span class=MsoCommentReference><span> </span></span>), which
                                 term shall unless the context otherwise requires mean and include its
                                 successors and assigns of One Part
                             </p>
@@ -297,9 +297,9 @@
                                 a Company incorporated under the <span>@Model.ProviderIncorporated</span>
                                 and having its place of business at <span>@Model.ProviderCompleteAddress</span>
                                 (hereinafter referred to as <b>
-                                    <span style='font-family:"Arial",sans-serif'>"@Model.ProviderShortName"</span>
-                                    or "Service Provider" or "Provider"
-                                </b>) which term shall unless the context otherwise
+                                    <span style='font-family:"Arial",sans-serif; font-weight: bold;'>"@Model.ProviderShortName"</span>
+                                    or <span style="font-weight: bold;">"Service Provider"</span> or <span style="font-weight: bold;">"Provider"</span>
+</b>) which term shall unless the context otherwise
                                 requires mean and include its successors and assigns of the Other Part
                             </p>
 
@@ -387,7 +387,7 @@
                                 Provider a fixed sum of  <span style='border-bottom: 1px;'>
                                     <span style="font-weight: bold;">
                                         @Model.GSTCurrency @Model.TotalPriceAgreed
-                                        annually for the duration of this Agreement.
+                                         for the duration of this Agreement.
                                     </span>
                                 </span>
 
@@ -546,13 +546,13 @@
                                 </tr>
                             </table>
 
-                            <div class="para-wrapper">
+                            <div class="para-wrapper forLineSpacing">
                                 <p class='MsoListParagraph awg-line'>
                                     <b>7.<span class="paragraph-Title">&nbsp;Miscellaneous</span></b>
                                 </p>
 
-                                <p class="MsoListParagraph pd-btm" style="padding-top:25px ;">
-                                    <span>i.</span><b><span class="paragraph-Title2"> Entire Agreement and Amendments.</span></b><span>
+                                <p class="MsoListParagraph pd-btm" style="padding-top:25px;">
+                                    <span>i.</span><span class="paragraph-Title2"> Entire Agreement and Amendments.</span><span style=" line-height: 17pt;">
                                         This Agreement constitutes the entire agreement of the parties with regard to the
                                         subject matter hereof, and replaces and supersedes all other agreements or
                                         understandings, whether written or oral. No amendment or extension of the
@@ -562,8 +562,7 @@
 
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>ii.</span><b><span style="font-weight: bold;" class="paragraph-Title2">Binding Effect, Assignment.</span></b>
-                                    <span class="paragraph-style">
+                                    <span>ii.</span><span style="font-weight: bold;" class="paragraph-Title2">Binding Effect, Assignment.</span><span class="paragraph-style" style=" line-height: 17pt;">
                                         This Agreement shall be binding upon and shall inure to the benefit of Parties and
                                         to their respective successors and assigns. Nothing in this Agreement shall be
                                         construed to permit the assignment by SAVWIPL or @Model.ProviderShortName of any of its rights
@@ -573,8 +572,7 @@
                                 </p>
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>iii.</span><b><span class="paragraph-Title2 pd-29">Governing Law, Severability.</span></b>
-                                    <span class="paragraph-style">
+                                    <span>iii.</span><span class="paragraph-Title2 pd-29">Governing Law, Severability.</span><span class="paragraph-style" style=" line-height: 17pt;">
                                         This Agreement shall be governed by the laws of India. The invalidity or
                                         unenforceability of any provision of the Agreement shall not affect the
                                         validity or enforceability of any other provision.
@@ -582,10 +580,7 @@
                                 </p>
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>iv.</span><b>
-                                        <span class="paragraph-Title2 pd-29">Confidentiality.</span>
-                                    </b>
-                                    <span class="paragraph-style">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span>
+                                    <span>iv.</span><span class="paragraph-Title2 pd-29">Confidentiality.</span><span class="paragraph-style" style=" line-height: 17pt;">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span  style=" line-height: 17pt;">
                                         The receiving Party recognizes that
                                         improper use of the Information disclosed hereunder shall cause irreparable
                                         damage to disclosing Party and that the recovery of monetary damages may be an
@@ -596,12 +591,7 @@
                                 </p>
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>v.</span><b>
-                                        <span class="paragraph-Title2 pd-29" style="font-weight: bold;">
-                                            Withholding Tax
-                                            Clause.
-                                        </span>
-                                    </b><span class="paragraph-style">
+                                    <span>v.</span><span class="paragraph-Title2 pd-29" style="font-weight: bold;"> Withholding Tax Clause.</span><span class="paragraph-style" style=" line-height: 17pt;">
                                         All payments under this Agreement will be made without any deduction or withholding for or
                                         on account of any Tax unless such deduction or withholding is required by any
                                         applicable law.  In such a case, deductor shall pay the full amount required to
@@ -618,7 +608,7 @@
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
                                     {
                                         <span style='font-family:"Arial",sans-serif'>
-                                            <span id="MiscelleneousClauses">@Html.Raw(@Model.MiscelleneousClauses)</span>
+                                            <span id="MiscelleneousClauses" style=" line-height: 17pt;">@Html.Raw(@Model.MiscelleneousClauses)</span>
                                         </span>
                                     }
                                 </p>
@@ -709,7 +699,7 @@
 
                             <p class=MsoNormal style='text-indent:.25in'><b>&nbsp;</b></p>
 
-                            <p class=MsoNormal style="width: 92.5%; margin: 0 auto;"><span style="font-weight: bold;">For and on behalf of  @Model.Provider</span></p>
+                            <p class=MsoNormal style="font-weight: bold;">For and on behalf of  @Model.Provider</p>
                             <div>
                                 <table class="MsoTableGrid forSignature" border=0 cellspacing=0 cellpadding=0
                                        style='border-collapse:collapse;border:none ;width: 100%;'>

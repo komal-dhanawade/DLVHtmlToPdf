@@ -158,6 +158,17 @@
         .forLineSpacing p {
             line-height: 33px;
         }
+
+        .MsoNormal b span {
+            font-weight: bold !important;
+           
+        }
+
+        #MiscelleneousClauses p span  {
+            display: inline;
+            line-height: 1.35 !important;
+        }
+       
     </style>
 </head>
 
@@ -294,13 +305,9 @@
                                 <b>
                                     <span><span style='font-weight:bold'>@Model.Provider</span></span>
                                 </b>,
-                                a Company incorporated under the <span>@Model.ProviderIncorporated</span>
-                                and having its place of business at <span>@Model.ProviderCompleteAddress</span>
-                                (hereinafter referred to as <b>
-                                    <span style='font-family:"Arial",sans-serif; font-weight: bold;'>"@Model.ProviderShortName"</span>
-                                    or <span style="font-weight: bold;">"Service Provider"</span> or <span style="font-weight: bold;">"Provider"</span>
-</b>) which term shall unless the context otherwise
-                                requires mean and include its successors and assigns of the Other Part
+                                a Company incorporated under the <span>@Model.ProviderIncorporated</span> and having its place of business at <span>@Model.ProviderCompleteAddress</span>&nbsp; (hereinafter referred to as <b>
+                                    <span style='font-family:"Arial",sans-serif; font-weight: bold;'>"@Model.ProviderShortName"</span> or <span style="font-weight: bold;">"Service Provider"</span> or <span style="font-weight: bold;">"Provider"</span>
+                                </b>) which term shall unless the context otherwise requires mean and include its successors and assigns of the Other Part
                             </p>
 
                             <p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'>&nbsp;</p>
@@ -604,14 +611,14 @@
 
 
                             <div class="miscelleneous-section wrappper-table">
-                                <p class=MsoNormal>
+                                <div class=MsoNormal >
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
                                     {
-                                        <span style='font-family:"Arial",sans-serif'>
-                                            <span id="MiscelleneousClauses" style=" line-height: 17pt;">@Html.Raw(@Model.MiscelleneousClauses)</span>
-                                        </span>
+                                        <div style='font:Arial;'>
+                                            <div id="MiscelleneousClauses">@Html.Raw(@Model.MiscelleneousClauses)</div>
+                                        </div>
                                     }
-                                </p>
+                                </div>
 
                                 <p class=MsoNormal>&nbsp;</p>
 

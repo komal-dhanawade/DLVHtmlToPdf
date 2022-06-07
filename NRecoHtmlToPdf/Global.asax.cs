@@ -1,6 +1,8 @@
+using Newtonsoft.Json;
 using NRecoHtmlToPdf;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -16,6 +18,14 @@ namespace NReco_HtmlToPdf
             AreaRegistration.RegisterAllAreas();
             //RouteConfig.RegisterRoutes(RouteTable.Routes);
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings =
+            new JsonSerializerSettings 
+            {
+                DateFormatHandling = DateFormatHandling.IsoDateFormat,
+                DateTimeZoneHandling = DateTimeZoneHandling.Unspecified,
+                Culture = CultureInfo.GetCultureInfo("fr-FR")
+            };
         }
     }
 }

@@ -227,7 +227,7 @@
                                     <td width=174 style='width:130.5pt;border-top:none;border-left:none;
     border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
     height:13.95pt'>
-                                        <p class=MsoNormal>@Model.DLVValidFrom.ToString("dd-MMM-yyyy")</p>
+                                        <p class=MsoNormal>@Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")</p>
                                     </td>
                                 </tr>
                                 <tr style='height:12.5pt'>
@@ -248,7 +248,7 @@
                                     <td width=174 valign=top style='width:130.5pt;border-top:none;border-left:
     none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
     height:12.5pt'>
-                                        <p class=MsoNormal>@Model.DLVValidTill.ToString("dd-MMM-yyyy")</p>
+                                        <p class=MsoNormal>@Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy")</p>
                                     </td>
                                 </tr>
                                 <tr style='height:12.5pt'>
@@ -431,8 +431,8 @@
                             </p>
 
                             <p class=paragraph-style style="margin-left: 23px;">
-                                This Agreement shall be effective from @Model.DLVValidFrom.ToString("dd-MMM-yyyy")
-                                and shall be valid up to  @Model.DLVValidTill.ToString("dd-MMM-yyyy") unless terminated by either of the party by
+                                This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
+                                and shall be valid up to  @Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy") unless terminated by either of the party by
                                 giving
 
                                 @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
@@ -441,7 +441,7 @@
                                 }
                                 else if (Model.NoticePeriod == "Others")
                                 {
-                                    <span>@Model.NoticePeriod</span>
+                                    <span>@Model.OtherNoticePeriod</span>
                                 }
                                 advance written notice to the other.
                             </p>

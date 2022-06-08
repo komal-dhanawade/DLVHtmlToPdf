@@ -20,13 +20,13 @@
         h1, h2, h3, h4, h5, h6, p, a, span, ul, li, b, table, th, td {
             font-family: Arial;
             font-size: 11pt;
-            text-align: justify;
+            
             letter-spacing: 1px;
         }
 
         p {
             font-size: 11pt;
-            text-align: justify;
+            
         }
 
         span, ul, li, b, table, th, td {
@@ -97,6 +97,11 @@
 
                 .forAnexureTbl table tr td:nth-child(4) {
                     text-align: center;
+                }
+
+
+                .forAnexureTbl table:first-of-type tr:not(:nth-child(1)) td:nth-child(3) {
+                    padding-right: 122px;
                 }
 
         td:not(.forSignature), th:not(.forSignature) {
@@ -318,7 +323,7 @@
                                 </b>) which term shall unless the context otherwise requires mean and include its successors and assigns of the Other Part
                             </p>
 
-                            <p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph'>&nbsp;</p>
+                          
 
                             <p class=MsoNormal style='text-align:justify;width:98%;
             margin-left: 0px;'>
@@ -342,13 +347,13 @@
                             </p>
                             <p></p>
                             <p class=MsoNormal style='text-align:justify;width: 100%;
-            margin-left: 0px;;padding-top:12px'>
+            margin-left: 0px;;padding-top:5px'>
                                 WHEREAS,
                                 <span>@Model.DLVItemDescription</span>
                             </p>
                             <p></p>
                             <p class=MsoNormal style='text-align:justify;width: 97.5%;
-            margin-left: 0px;;padding-top:12px'>
+            margin-left: 0px;;padding-top:5px'>
                                 WHEREAS, <span>@Model.ProviderBusinessActivities</span>
                             </p>
                             <p></p>
@@ -769,7 +774,7 @@ padding:0in 5.4pt 0in 5.4pt'>
                                 <p class="MsoNormal" align=center style='margin-left:.25in; margin: 0 auto;
   text-align:center;margin-bottom: 12pt!important;'><span style="font-weight: bold;">ANNEXURE A</span></p>
                                 <div class="wrappper-table">
-                                    <p class="MsoNormal"><span class="MsoPlaceholderText forAnexureTbl">@Html.Raw(@Model.ConsiderationText)</span></p>
+                                    <p class="MsoNormal"><div class="MsoPlaceholderText forAnexureTbl">@Html.Raw(@Model.ConsiderationText)</div></p>
                                 </div>
                             </div>
                         </div><!--end of border div-->

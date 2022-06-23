@@ -184,7 +184,8 @@
             margin-top: 100px;
             display:inline-block;
         }
-       
+
+   
     </style>
 </head>
 
@@ -228,7 +229,7 @@
                                     <td width=90 style='width:93.5pt;border-top:none;border-left:none;border-bottom:
     solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
     height:13.95pt;'>
-                                        <p class=MsoNormal><span style="color:#f00 !important; font-weight: bold;">@Model.DLVID</span></p>
+                                        <p class=MsoNormal><span style="font-weight: bold;">@Model.DLVID</span></p>
                                     </td>
                                     <td width=144 rowspan=2 style='width:1.5in;border-top:none;border-left:none;
     border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -264,7 +265,16 @@
                                     <td width=174 valign=top style='width:130.5pt;border-top:none;border-left:
     none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
     height:12.5pt'>
-                                        <p class=MsoNormal>@Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy")</p>
+                                        @if (Model.isPerpetualDLV == "No")
+                                        {
+                                            <p class=MsoNormal>@Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy")</p>
+                                        }
+                                        else if (Model.isPerpetualDLV == "Yes")
+                                        {
+                                            <p class=MsoNormal>Perpetual</p>
+                                        }
+
+
                                     </td>
                                 </tr>
                                 <tr style='height:12.5pt'>
@@ -322,7 +332,8 @@
                                 </b>,
                                 a Company incorporated under the <span>@Model.ProviderIncorporated</span> and having its place of business at <span>@Model.ProviderCompleteAddress</span>&nbsp;(hereinafter referred to as <b><span style='font-family:"Arial",sans-serif; font-weight: bold;'>"@Model.ProviderShortName"</span> or <span style="font-weight: bold;">"Service Provider"</span> or <span style="font-weight: bold;">"Provider"</span> </b>) which term shall unless the context otherwise requires mean and include its successors and assigns of the Other Part
                             </p>
-                            <p class=MsoNormal style='text-align:justify;width:98%; margin-left: 0px;'> SAVWIPL and <span>@Model.ProviderShortName</span> are hereinafter collectively referred to as the <span style="font-weight: bold;">Parties</span> and individually as <span style="font-weight: bold;">Party</span>.
+                            <p class=MsoNormal style='text-align:justify;width:98%; margin-left: 0px;'>
+                                SAVWIPL and <span>@Model.ProviderShortName</span> are hereinafter collectively referred to as the <span style="font-weight: bold;">Parties</span> and individually as <span style="font-weight: bold;">Party</span>.
                             </p>
 
                             <p class=MsoNormal style='text-align:justify;width: 93%;
@@ -333,7 +344,8 @@
                             </p>
 
                             <p class=MsoNormal style='text-align:justify;width: 100%;
-            margin-left: 0px;'>WHEREAS, SAVWIPL is engaged in Manufacture, Sales and Aftersales business of Volkswagen Group Cars in India.
+            margin-left: 0px;'>
+                                WHEREAS, SAVWIPL is engaged in Manufacture, Sales and Aftersales business of Volkswagen Group Cars in India.
                             </p>
                             <p></p>
                             <p class=MsoNormal style='text-align:justify;width: 100%;
@@ -397,7 +409,7 @@
                                 Provider a fixed sum of  <span style='border-bottom: 1px;'>
                                     <span style="font-weight: bold;">
                                         @Model.GSTCurrency @Model.TotalPriceAgreed
-                                         for the duration of this Agreement.
+                                        for the duration of this Agreement.
                                     </span>
                                 </span>
 
@@ -429,10 +441,11 @@
                                 prevailing rates. The detailed breakup of these costs is mentioned in the
                                 Annexure-A to this Agreement.
                             </p>
+                            <p class=paragraph-style>@Model.AdditionalConsideration</p>
                             <p class='MsoListParagraph  awg-line'>
                                 <b>3.<span class="paragraph-Title">&nbsp;Term</span></b>
                             </p>
-
+                            @if (Model.isPerpetualDLV == "No") {
                             <p class=paragraph-style style="margin-left: 23px;">
                                 This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
                                 and shall be valid up to  @Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy") unless terminated by either of the party by
@@ -448,8 +461,26 @@
                                 }
                                 advance written notice to the other.
                             </p>
+                            } else if (Model.isPerpetualDLV == "Yes") {
+                        <p class=paragraph-style style="margin-left: 23px;">
+                            This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
+                            and shall be valid perpetually unless terminated by either of the party by
+                            giving
+
+                            @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
+                            {
+                                <span>@Model.NoticePeriod</span>
+                            }
+                            else if (Model.NoticePeriod == "Others")
+                            {
+                                <span>@Model.OtherNoticePeriod</span>
+                            }
+                            advance written notice to the other.
+                        </p>
+                            }
+
                             <p class='MsoListParagraph  awg-line'>
-                                
+
                                 <b>4.<span class="paragraph-Title">&nbsp;Breach of Agreement</span></b>
                             </p>
 
@@ -494,7 +525,10 @@
                                                 &nbsp;&nbsp;
                                             </span>Notices to SAVWIPL:
                                         </p>
-                                        <p class=MsoNormal style='margin-left:25pt; margin-top: 0px !important;'><span style="font-weight: bold;" id="NoticeSAVWIPL">@Model.NoticeSAVWIPL</span></p>
+                                        <p class=MsoNormal style='margin-left:25pt; margin-top: 0px !important;'>
+                                            <span style="font-weight: bold;" id="NoticeSAVWIPL">@Model.NoticeSAVWIPL</span>
+                                            <br><span> @Model.savwiplDesignation </span> , <span> @Model.savwiplDepartment</span>
+                                        </p>
 
                                     </td>
                                     <td width=296 valign=top style='width:221.95pt;padding:0in 5.4pt 0in 41.4pt;
@@ -504,7 +538,7 @@
                                                 &nbsp;&nbsp;
                                             </span>Notices to <span id="ProviderShortName">@Model.ProviderShortName</span>:
                                         </p>
-                                        <p class=MsoNormal style='margin-left: 19pt;  margin-top: 0px !important;'><span style="font-weight: bold;" id="NoticeReceiver">@Model.NoticeReceiver</span></p>
+                                        <p class=MsoNormal style='margin-left: 19pt;  margin-top: 0px !important;'><span style="font-weight: bold;" id="NoticeReceiver">@Model.NoticeReceiver</span><br /> @Model.otherPartyDesignation <span>,</span> @Model.otherPartyDepartment</p>
                                     </td>
                                 </tr>
                                 <tr style='height:.3in'>
@@ -590,7 +624,7 @@
                                 </p>
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>iv.</span><span class="paragraph-Title2 pd-29">Confidentiality.</span><span class="paragraph-style" style=" line-height: 17pt;">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span  style=" line-height: 17pt;">
+                                    <span>iv.</span><span class="paragraph-Title2 pd-29">Confidentiality.</span><span class="paragraph-style" style=" line-height: 17pt;">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span style=" line-height: 17pt;">
                                         The receiving Party recognizes that
                                         improper use of the Information disclosed hereunder shall cause irreparable
                                         damage to disclosing Party and that the recovery of monetary damages may be an
@@ -614,7 +648,7 @@
 
 
                             <div class="miscelleneous-section wrappper-table">
-                                <div class=MsoNormal >
+                                <div class=MsoNormal>
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
                                     {
                                         <div style='font:Arial;'>
@@ -739,12 +773,14 @@ padding:0in 5.4pt 0in 5.4pt'>
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt; "><span class=DLVBold>@Model.secondPartySignature01</span></p>
+                                            <p>@Model.signatoryDepartment01, @Model.signatoryDesignation01</p>
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold></span></p>
                                         </td>
                                         <td width=180 valign=top style='width:135.15pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt;"><span class=DLVBold>@Model.secondPartySignature02</span></p>
+                                            <p>@Model.signatoryDepartment02, @Model.signatoryDesignation02</p>
                                         </td>
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>

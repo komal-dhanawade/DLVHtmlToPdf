@@ -93,8 +93,17 @@ namespace NReco_HtmlToPdf.Models
         public object OtherNoticePeriod { get; set; }
         public int ID { get; set; }
         public string LocationOfEvent { get; set; }
-
+        public string isPerpetualDLV { get; set; }
+        public string otherPartyDesignation { get; set; }
+        public string otherPartyDepartment { get; set; }
+        public string savwiplDesignation { get; set; }
+        public string savwiplDepartment { get; set; }
         public Settings Configurations { get; set; }
+        public string AdditionalConsideration { get; set; }
+        public string signatoryDesignation01 { get; set; }
+        public string signatoryDepartment01 { get; set; }
+        public string signatoryDesignation02 { get; set; }
+        public string signatoryDepartment02 { get; set; }
     }
     public class DLVCreator
     {

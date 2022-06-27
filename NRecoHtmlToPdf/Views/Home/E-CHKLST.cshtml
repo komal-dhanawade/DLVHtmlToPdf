@@ -105,8 +105,8 @@
                             <tr style='height:.2in'>
                                 <td width=335 colspan=2 rowspan=3 style='width:250.95pt;border:solid #A6A6A6 1px;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                        <img width=314 height=63 {LogoImg} @*src="~/assets/images/checklistlogo.png"*@
-                                             alt="SAVWIPL_Mumbai_Office_pos_RGB">
+                                    <img width=314 height=63 {LogoImg} @*src="~/assets/images/checklistlogo.png"*@
+                                         alt="SAVWIPL_Mumbai_Office_pos_RGB">
                                 </td>
                                 <td width=155 colspan=2 style='width:116.4pt;border:solid #A6A6A6 1px;
     border-left:none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
@@ -158,7 +158,7 @@
                                     {
                                         <p class=TableText>Perpetual</p>
                                     }
-                                    
+
                                 </td>
                             </tr>
                             <tr style='height:.2in'>
@@ -289,7 +289,7 @@
     height:9.25pt'>
                                     <h1>
                                         <span style='font-family:"Arial"; font-weight: bold;'>
-                                       1. Gist of the contract / Nature of transaction (in simple words)
+                                            1. Gist of the contract / Nature of transaction (in simple words)
                                         </span>
                                     </h1>
                                 </td>
@@ -414,7 +414,7 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.CurrencyType == "INR" ? "checked" : "") disabled />
-                                               @*@(Model.CurrencyType != "INR" ? "disabled" : "")>*@
+                                        @*@(Model.CurrencyType != "INR" ? "disabled" : "")>*@
                                     </p>
                                 </td>
                                 <td width=63 style='width:46.95pt;border-top:none;border-left:none;
@@ -427,8 +427,8 @@
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.CurrencyType != "INR" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.CurrencyType != "INR")"
-                                               [disabled]="@(Model.CurrencyType != "Foreign")">*@
+                                        @*[checked]="@(Model.CurrencyType != "INR")"
+                        [disabled]="@(Model.CurrencyType != "Foreign")">*@
                                     </p>
                                 </td>
                             </tr>
@@ -454,8 +454,8 @@
     height:12.65pt'>
                                     <h1>
                                         <span style=' font-family:"Arial"'>
-   4. Functions to be performed
-</span>
+                                            4. Functions to be performed
+                                        </span>
                                     </h1>
                                 </td>
                             </tr>
@@ -470,8 +470,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.ServiceType == "Service" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.ServiceType == "Service")"
-                                               [disabled]="@(Model.ServiceType != "Service")">*@
+                                        @*[checked]="@(Model.ServiceType == "Service")"
+                        [disabled]="@(Model.ServiceType != "Service")">*@
                                     </p>
                                 </td>
                                 <td width=126 style='width:94.5pt;border-top:none;border-left:none;
@@ -484,8 +484,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.ServiceType == "Both - Service and Reimbursement" ? "checked" : "") disabled />
-                                               @*checked="@(Model.ServiceType == "Reimbursement")"
-                                               disabled="@(Model.ServiceType != "Reimbursement")">*@
+                                        @*checked="@(Model.ServiceType == "Reimbursement")"
+                        disabled="@(Model.ServiceType != "Reimbursement")">*@
                                     </p>
                                 </td>
                                 <td width=144 style='width:107.85pt;border-top:none;border-left:none;
@@ -498,8 +498,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.ServiceType == "others" ? "checked" : "") disabled />
-                                               @*checked="@(Model.ServiceType == "others")"
-                                               [disabled]="@(Model.ServiceType == "others")" />*@
+                                        @*checked="@(Model.ServiceType == "others")"
+                        [disabled]="@(Model.ServiceType == "others")" />*@
                                     </p>
                                 </td>
                             </tr>
@@ -531,8 +531,8 @@
     height:.2in'>
                                     <h1>
                                         <span style='font-family:"Arial";'>
-    5. Whether goods involved
-</span>
+                                            5. Whether goods involved
+                                        </span>
                                         @if (Model.AreGoodsInvolved == "No")
                                         {
                                             <span> - NA</span>
@@ -557,8 +557,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.LocationOfGoods == "India" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.LocationOfGoods == "India")"
-                                               [disabled]="@(Model.LocationOfGoods != "India")">*@
+                                        @*[checked]="@(Model.LocationOfGoods == "India")"
+                        [disabled]="@(Model.LocationOfGoods != "India")">*@
                                     </p>
                                 </td>
                                 <td width=144 style='width:107.65pt;border-top:none;border-left:none;
@@ -571,8 +571,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.LocationOfGoods == "Outside" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.LocationOfGoods == "Outside")"
-                                               [disabled]="@(Model.LocationOfGoods != "Outside")">*@
+                                        @*[checked]="@(Model.LocationOfGoods == "Outside")"
+                        [disabled]="@(Model.LocationOfGoods != "Outside")">*@
                                     </p>
                                 </td>
                             </tr>
@@ -633,8 +633,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.PlaceOfEvent == "India" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.PlaceOfEvent == "India")"
-                                               [disabled]="@(Model.PlaceOfEvent != "India")">*@
+                                        @*[checked]="@(Model.PlaceOfEvent == "India")"
+                        [disabled]="@(Model.PlaceOfEvent != "India")">*@
 
                                     </p>
                                 </td>
@@ -648,8 +648,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.PlaceOfEvent == "Outside" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.PlaceOfEvent == "Outside")"
-                                               [disabled]="@(Model.PlaceOfEvent != "Outside")">*@
+                                        @*[checked]="@(Model.PlaceOfEvent == "Outside")"
+                        [disabled]="@(Model.PlaceOfEvent != "Outside")">*@
                                     </p>
                                 </td>
                             </tr>
@@ -671,8 +671,8 @@
     height:.2in'>
                                     <h1>
                                         <span style='font-family:"Arial",sans-serif;'>
-    7. Details of Third party
-</span>
+                                            7. Details of Third party
+                                        </span>
                                     </h1>
                                 </td>
                             </tr>
@@ -691,9 +691,9 @@
     border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
-                                        <input type="checkbox"  @(Model.ThirdParty == "Group Company" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.ThirdParty == "Group Company")"
-                                               [disabled]="@(Model.ThirdParty != "Group Company")">*@
+                                        <input type="checkbox" @(Model.ThirdParty == "Group Company" ? "checked" : "") disabled />
+                                        @*[checked]="@(Model.ThirdParty == "Group Company")"
+                        [disabled]="@(Model.ThirdParty != "Group Company")">*@
                                     </p>
                                 </td>
                                 <td width=144 style='width:107.65pt;border-top:none;border-left:none;
@@ -706,8 +706,8 @@
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
                                         <input type="checkbox" @(Model.ThirdParty == "Non Group Company" ? "checked" : "") disabled />
-                                               @*[checked]="@(Model.ThirdParty == "Non Group Company")"
-                                               [disabled]="@(Model.ThirdParty != "Non Group Company")">*@
+                                        @*[checked]="@(Model.ThirdParty == "Non Group Company")"
+                        [disabled]="@(Model.ThirdParty != "Non Group Company")">*@
 
                                     </p>
                                 </td>
@@ -751,7 +751,12 @@
                                 vary at the time of actual provision of services.
                             </span>
                         </p>
-
+                        <p class=MsoNormal style='
+           padding-bottom: 9px;   padding-top: 7px;'>
+                            <span style='font-family:"Arial",sans-serif;'>
+                                @Model.IndirectTaxComment
+                            </span>
+                        </p>
                         <p class=MsoNormal style='width: 100%; margin: 0 auto; padding-bottom: 9px; margin: 0 auto;    padding-top: 7px;'>
                             <span style='font-size:11pt;font-family:"Arial",sans-serif;'>
                                 I

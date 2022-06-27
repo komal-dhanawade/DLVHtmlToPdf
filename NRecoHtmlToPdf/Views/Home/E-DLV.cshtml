@@ -445,38 +445,41 @@
                             <p class='MsoListParagraph  awg-line'>
                                 <b>3.<span class="paragraph-Title">&nbsp;Term</span></b>
                             </p>
-                            @if (Model.isPerpetualDLV == "No") {
-                            <p class=paragraph-style style="margin-left: 23px;">
-                                This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
-                                and shall be valid up to  @Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy") unless terminated by either of the party by
-                                giving
-
-                                @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
-                                {
-                                    <span>@Model.NoticePeriod</span>
-                                }
-                                else if (Model.NoticePeriod == "Others")
-                                {
-                                    <span>@Model.OtherNoticePeriod</span>
-                                }
-                                advance written notice to the other.
-                            </p>
-                            } else if (Model.isPerpetualDLV == "Yes") {
-                        <p class=paragraph-style style="margin-left: 23px;">
-                            This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
-                            and shall be valid perpetually unless terminated by either of the party by
-                            giving
-
-                            @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
+                            @if (Model.isPerpetualDLV == "No")
                             {
-                                <span>@Model.NoticePeriod</span>
+                                <p class=paragraph-style style="margin-left: 23px;">
+                                    This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
+                                    and shall be valid up to  @Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy") unless terminated by either of the party by
+                                    giving
+
+                                    @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
+                                    {
+                                        <span>@Model.NoticePeriod</span>
+                                    }
+                                    else if (Model.NoticePeriod == "Others")
+                                    {
+                                        <span>@Model.OtherNoticePeriod</span>
+                                    }
+                                    advance written notice to the other.
+                                </p>
                             }
-                            else if (Model.NoticePeriod == "Others")
+                            else if (Model.isPerpetualDLV == "Yes")
                             {
-                                <span>@Model.OtherNoticePeriod</span>
-                            }
-                            advance written notice to the other.
-                        </p>
+                                <p class=paragraph-style style="margin-left: 23px;">
+                                    This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
+                                    and shall be valid perpetually unless terminated by either of the party by
+                                    giving
+
+                                    @if (Model.NoticePeriod == "1 Month" || Model.NoticePeriod == "3 Months")
+                                    {
+                                        <span>@Model.NoticePeriod</span>
+                                    }
+                                    else if (Model.NoticePeriod == "Others")
+                                    {
+                                        <span>@Model.OtherNoticePeriod</span>
+                                    }
+                                    advance written notice to the other.
+                                </p>
                             }
 
                             <p class='MsoListParagraph  awg-line'>
@@ -645,10 +648,12 @@
                                     </span>
                                 </p>
                             </div>
-
+                            <p class=MsoNormal>&nbsp;</p>
 
                             <div class="miscelleneous-section wrappper-table">
+
                                 <div class=MsoNormal>
+                                    <div><span class="paragraph-Title" style="font-weight: bold;">Additional Miscellaneous Clauses</span></div>
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
                                     {
                                         <div style='font:Arial;'>
@@ -752,6 +757,7 @@
 solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
                                             <!--{{dlvDetails.secondPartySignature01}}-->
                                             <p class=MsoNormal style="margin-top: 66pt;"><span class=DLVBold></span></p>
+                                            DL
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold></span></p>
@@ -760,6 +766,7 @@ solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
 solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
                                             <!--{{dlvDetails.secondPartySignature02}}-->
                                             <p class=MsoNormal style="margin-top: 66pt;"><span class=DLVBold></span></p>
+                                            DL
                                         </td>
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>

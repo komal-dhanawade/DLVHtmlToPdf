@@ -158,6 +158,10 @@
                                     {
                                         <p class=TableText>Perpetual</p>
                                     }
+                                    else if (Model.isPerpetualDLV == "Complition of obligation")
+                                    {
+                                        <p class=MsoNormal>Complition of obligation</p>
+                                    }
 
                                 </td>
                             </tr>
@@ -745,10 +749,15 @@
                                 {
                                     <span> @Model.GSTClauseText </span>
                                 }
+                                @if(Model.IndirectTaxComment != ""){
 
+                            <span>
                                 GST credit
                                 will be available on said transaction. Tax rates are subject to change and may
                                 vary at the time of actual provision of services.
+                            </span>
+                                }
+                               
                             </span>
                         </p>
                         <p class=MsoNormal style='

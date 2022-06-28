@@ -55,7 +55,7 @@ namespace NReco_HtmlToPdf.Models
         public string CurrencyType { get; set; }
         public string EventOrganizer { get; set; }
         public string LocationOfGoods { get; set; }
-        public double Margin { get; set; }
+        public string Margin { get; set; }
         public string NameOfSupplierOfGoods { get; set; }
         public string NatureOfTransation { get; set; }
         public string OwnershipOfGoods { get; set; }
@@ -63,7 +63,7 @@ namespace NReco_HtmlToPdf.Models
         public string Reason { get; set; }
         public string ServiceType { get; set; }
         public string ThirdParty { get; set; }
-        public double TotalPriceAgreed { get; set; }
+        public string TotalPriceAgreed { get; set; }
         public string PlaceOfEvent { get; set; }
         public string ol_Department { get; set; }
         public object Receiver { get; set; }
@@ -84,7 +84,7 @@ namespace NReco_HtmlToPdf.Models
         public string ProviderCostCenter { get; set; }
         public string ReceiverCostCenter { get; set; }
         public string MiscelleneousClauses { get; set; }
-        public double BasicCost { get; set; }
+        public string BasicCost { get; set; }
         public object secondPartySignature01 { get; set; }
         public object secondPartySignature02 { get; set; }
         public string GSTApplicable { get; set; }

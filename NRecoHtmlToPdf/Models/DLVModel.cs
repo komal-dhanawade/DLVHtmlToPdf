@@ -104,6 +104,7 @@ namespace NReco_HtmlToPdf.Models
         public string signatoryDepartment01 { get; set; }
         public string signatoryDesignation02 { get; set; }
         public string signatoryDepartment02 { get; set; }
+        public string ServiceTypeOther { get; set; }
     }
     public class DLVCreator
     {

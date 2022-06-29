@@ -681,15 +681,16 @@
                             <div class="miscelleneous-section wrappper-table">
 
                                 <div class=MsoNormal>
-                                    <div><span class="paragraph-Title" style="font-weight: bold;">Additional Miscellaneous Clauses</span></div>
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
                                     {
+                                        <div><span class="paragraph-Title" style="font-weight: bold;">Additional Miscellaneous Clauses</span></div>
+
                                         <div style='font:Arial;'>
                                             <div id="MiscelleneousClauses">@Html.Raw(@Model.MiscelleneousClauses)</div>
                                         </div>
-                                    }
-                                </div>
-
+                                        }
+                                    </div>
+                                    
                                 <p class=MsoNormal>&nbsp;</p>
 
                                 <p class=MsoNormal style='text-align:left;width: 100%; margin: 0 auto;'>
@@ -808,14 +809,15 @@ padding:0in 5.4pt 0in 5.4pt'>
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt; "><span class=DLVBold>@Model.secondPartySignature01</span></p>
-                                            <p>@Model.signatoryDesignation01, @Model.signatoryDepartment01 </p>
+                                            <p>@Model.signatoryDesignation01 @if (!string.IsNullOrEmpty(Model.signatoryDepartment01)) {<span>,</span> } @Model.signatoryDepartment01 </p>
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold></span></p>
                                         </td>
                                         <td width=180 valign=top style='width:135.15pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt;"><span class=DLVBold>@Model.secondPartySignature02</span></p>
-                                            <p>@Model.signatoryDesignation02, @Model.signatoryDepartment02</p>
+                                            <p>@Model.signatoryDesignation02@if (!string.IsNullOrEmpty(Model.signatoryDepartment02))
+                                                                                      {<span>,</span>} @Model.signatoryDepartment02</p>
                                         </td>
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>

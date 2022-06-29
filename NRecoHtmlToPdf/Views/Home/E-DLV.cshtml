@@ -193,6 +193,10 @@
             text-align: left !important;
             word-spacing: normal !important;
         }
+
+        .forLeftSpace {
+            margin-left: 23px !important;
+        }
     </style>
 </head>
 
@@ -447,7 +451,7 @@
                                 prevailing rates. The detailed breakup of these costs is mentioned in the
                                 Annexure-A to this Agreement.
                             </p>
-                            <p class=paragraph-style>@Html.Raw(Model.AdditionalConsideration)</p>
+                            <div class="paragraph-style forLeftSpace">@Html.Raw(Model.AdditionalConsideration)</div>
                             <p class='MsoListParagraph  awg-line'>
                                 <b>3.<span class="paragraph-Title">&nbsp;Term</span></b>
                             </p>

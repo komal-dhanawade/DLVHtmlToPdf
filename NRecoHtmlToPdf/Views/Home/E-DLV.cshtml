@@ -192,6 +192,8 @@
        .MsoNormal u span {
             text-align: left !important;
             word-spacing: normal !important;
+            width: 100%;
+           
         }
 
         .forLeftSpace {
@@ -558,7 +560,8 @@
                                         </p>
                                         <p class=MsoNormal style='margin-left:25pt; margin-top: 0px !important;'>
                                             <span style="font-weight: bold;" id="NoticeSAVWIPL">@Model.NoticeSAVWIPL</span>
-                                            <br><span> @Model.savwiplDesignation </span> , <span> @Model.savwiplDepartment</span>
+                                            <br><span> @Model.savwiplDesignation </span>@if (!string.IsNullOrEmpty(Model.savwiplDepartment))
+                                            {<span>,</span>}<span> @Model.savwiplDepartment</span>
                                         </p>
 
                                     </td>
@@ -569,7 +572,10 @@
                                                 &nbsp;&nbsp;
                                             </span>Notices to <span id="ProviderShortName">@Model.ProviderShortName</span>:
                                         </p>
-                                        <p class=MsoNormal style='margin-left: 19pt;  margin-top: 0px !important;'><span style="font-weight: bold;" id="NoticeReceiver">@Model.NoticeReceiver</span><br /> @Model.otherPartyDesignation <span>,</span> @Model.otherPartyDepartment</p>
+                                        <p class=MsoNormal style='margin-left: 19pt;  margin-top: 0px !important;'>
+                                            <span style="font-weight: bold;" id="NoticeReceiver">@Model.NoticeReceiver</span><br /> @Model.otherPartyDesignation @if (!string.IsNullOrEmpty(Model.otherPartyDepartment))
+                                            {<span>,</span>} @Model.otherPartyDepartment
+                                        </p>
                                     </td>
                                 </tr>
                                 <tr style='height:.3in'>

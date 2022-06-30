@@ -148,8 +148,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\GlobalClass.cs" />
+    <Compile Include="Helpers\HttpPostedFileBaseCustom.cs" />
     <Compile Include="Models\DLVModel.cs" />
     <Compile Include="Models\FormModel.cs" />
+    <Compile Include="Models\PDFResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

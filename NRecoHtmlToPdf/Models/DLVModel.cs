@@ -105,6 +105,7 @@ namespace NReco_HtmlToPdf.Models
         public string signatoryDesignation02 { get; set; }
         public string signatoryDepartment02 { get; set; }
         public string ServiceTypeOther { get; set; }
+        public PDFOptions PDFOptions { get; set; }
     }
     public class DLVCreator
     {
@@ -150,4 +151,11 @@ namespace NReco_HtmlToPdf.Models
         public string Title { get; set; }
     }
 
+    public class PDFOptions
+    {
+        /// <summary>
+        /// Keyword to be searched in pdf
+        /// </summary>
+        public string Keyword { get; set; }
+    }
 }

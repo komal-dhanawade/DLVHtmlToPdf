@@ -1,14 +1,13 @@
-﻿@model NReco_HtmlToPdf.Models.DLVModel
-
+﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = null;
+    ViewBag.Title = "ExpenseREM_CHKLST";
 }
+
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
 
 <head>
-   @* <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
-    <meta name=Generator content="Microsoft Word 15 (filtered)">*@
+    @* <meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+        <meta name=Generator content="Microsoft Word 15 (filtered)">*@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>t1 - Expense DLV Checklist Template.docx</title>
     <style>
@@ -100,19 +99,22 @@
                                 </span>
                             </b>
                         </p>
-                        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=100%
-                               style=' margin: 0 auto; border-collapse: collapse; border: none;'>
+                        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=732
+                               style='width: 548.75pt; margin: 0 auto; border-collapse: collapse; border: none;'>
                             <tr style='height:.2in'>
                                 <td width=335 colspan=2 rowspan=3 style='width:250.95pt;border:solid #A6A6A6 1px;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <img width=314 height=63 {LogoImg} @*src="~/assets/images/checklistlogo.png"*@
-                                         alt="SAVWIPL_Mumbai_Office_pos_RGB">
+                                    <p class=MsoNormal>
+                                        <img width=314 height=63 {LogoImg}
+                                            @* src="{{LogoUrl}}assets/images/checklistlogo.png"*@
+                                             alt="SAVWIPL_Mumbai_Office_pos_RGB">
+                                    </p>
                                 </td>
                                 <td width=155 colspan=2 style='width:116.4pt;border:solid #A6A6A6 1px;
     border-left:none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=MsoNormal>
                                         <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
+                                            <span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>
                                                 Contract
                                                 No
                                             </span>
@@ -128,47 +130,37 @@
                                 <td width=83 rowspan=2 style='width:62.15pt;border-top:none;border-left:none;
     border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1px;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal><b><span style='font-size:11pt; font-family:"Arial",sans-serif;'>Validity</span></b></p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>Validity</span></b></p>
                                 </td>
                                 <td width=72 style='width:54.25pt;border-top:none;border-left:none;
     border-bottom:solid #A6A6A6 1.0pt;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal><b><span style='font-size:11pt; font-family:"Arial",sans-serif;'>From</span></b></p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>From</span></b></p>
                                 </td>
                                 <td width=242 valign=top style='width:181.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1.0pt;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>@Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")</p>
+                                    <p class=TableText>@Model.DLVValidFrom | date:'dd-MMM-y'</p>
                                 </td>
                             </tr>
                             <tr style='height:.2in'>
                                 <td width=72 style='width:54.25pt;border-top:none;border-left:none;
     border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal><b><span style='font-size:11pt;font-family:"Arial",sans-serif;'>Until</span></b></p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Arial",sans-serif;'>Until</span></b></p>
                                 </td>
                                 <td width=242 valign=top style='width:181.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    @if (Model.isPerpetualDLV == "No")
-                                    {
-                                        <p class=TableText>@Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy")</p>
-                                    }
-                                    else if (Model.isPerpetualDLV == "Yes")
-                                    {
-                                        <p class=TableText>Perpetual</p>
-                                    }
-                                    else if (Model.isPerpetualDLV == "Completion of obligation")
-                                    {
-                                        <p class=MsoNormal>Completion of obligation</p>
-                                    }
-
+                                    <p class=TableText *ngIf="dlvDetails?.isPerpetualDLV==='No'">@Model.DLVValidTill| date:'dd-MMM-y'</p>
+                                    <p class=TableText *ngIf="dlvDetails?.isPerpetualDLV==='Yes'">Perpetual</p>
+                                    <p class=MsoNormal *ngIf="dlvDetails?.isPerpetualDLV==='Completion of obligation'">Completion of obligation</p>
                                 </td>
                             </tr>
                             <tr style='height:.2in'>
                                 <td width=161 style='width:120.75pt;border:solid #A6A6A6 1px;border-top:
     none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal><b><span style='font-size:11pt; font-family:"Arial",sans-serif;'>Department</span></b></p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>Department</span></b></p>
                                 </td>
                                 <td width=174 valign=top style='width:130.2pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
@@ -180,7 +172,7 @@
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=MsoNormal>
                                         <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
+                                            <span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>
                                                 Prepared
                                                 By
                                             </span>
@@ -190,55 +182,34 @@
                                 <td width=242 valign=top style='width:181.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1.0pt;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText><span class=MsoPlaceholderText>@Model.DLVCreator.Title</span></p>
+                                    <p class=TableText><span class=MsoPlaceholderText>@Model.DLVCreator?.Title</span></p>
                                 </td>
                             </tr>
                             <tr style='height:.2in'>
                                 <td width=161 style='width:120.75pt;border:solid #A6A6A6 1px;border-top:
     none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal>
-                                        <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
-                                                Service
-                                                Provider
-                                            </span>
-                                        </b>
-                                    </p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>Reimbursement by</span></b></p>
                                 </td>
                                 <td width=174 valign=top style='width:130.2pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1px;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText><span class=MsoPlaceholderText>@Model.Provider</span></p>
+                                    <p class=TableText><span class=MsoPlaceholderText>SAVWIPL</span></p>
                                 </td>
                                 <td width=155 colspan=2 style='width:116.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal>
-                                        <b>
-                                            <span style='font-size:11pt;font-family:"Arial",sans-serif;'>
-                                                Service
-                                                Receiver
-                                            </span>
-                                        </b>
-                                    </p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt;font-family:"Arial",sans-serif;'>Reimbursement to</span></b></p>
                                 </td>
                                 <td width=242 valign=top style='width:181.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText><span style='   font-family:"Arial",sans-serif;'>SAVWIPL</span></p>
+                                    <p class=TableText><span style='   font-family:"Arial",sans-serif;'>@Model.Provider</span></p>
                                 </td>
                             </tr>
                             <tr style='height:.2in'>
                                 <td width=161 style='width:120.75pt;border:solid #A6A6A6 1px;border-top:
     none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal>
-                                        <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
-                                                Cost
-                                                Center (SP)
-                                            </span>
-                                        </b>
-                                    </p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>Cost Center(SP)</span></b></p>
                                 </td>
                                 <td width=174 valign=top style='width:130.2pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
@@ -248,14 +219,7 @@
                                 <td width=155 colspan=2 style='width:116.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=MsoNormal>
-                                        <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
-                                                Cost
-                                                center (SR)
-                                            </span>
-                                        </b>
-                                    </p>
+                                    <p class=MsoNormal><b><span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>Cost center(SR)</span></b></p>
                                 </td>
                                 <td width=242 valign=top style='width:181.4pt;border-top:none;border-left:
     none;border-bottom:solid #A6A6A6 1px;border-right:solid #A6A6A6 1.0pt;
@@ -268,7 +232,7 @@
     none;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=MsoNormal>
                                         <b>
-                                            <span style='font-size:11pt; font-family:"Arial",sans-serif;'>
+                                            <span style='font-size:10.0pt; font-family:"Arial",sans-serif;'>
                                                 Subject/
                                                 Title:
                                             </span>
@@ -282,6 +246,8 @@
                                 </td>
                             </tr>
                         </table>
+
+
 
                         <p class=MsoNormal><b><span style='font-size:11pt; font-family:"Arial",sans-serif;'>&nbsp;</span></b></p>
 
@@ -450,16 +416,16 @@
 
                         <p class=MsoNormal><b><span style='font-size:6.0pt;font-family:"Arial",sans-serif;'>&nbsp;</span></b></p>
 
-                        <table width="100%" class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+                        <table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
                                style='margin-left:.9pt;border-collapse:collapse;border:none;margin: 0 auto;'>
                             <tr style='height:12.65pt'>
                                 <td width=732 colspan=6 style='width:549.0pt;border:solid #A6A6A6 1.0pt;
     border-bottom:solid #EEECE1 1.0pt;background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt;
     height:12.65pt'>
                                     <h1>
-                                        <span style=' font-family:"Arial"'>
-                                            4. Functions to be performed
-                                        </span>
+                                        4.<span style='font:7.0pt;font-family:"Arial",sans-serif;'>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </span>Functions to be performed<span style='color:black'> </span>
                                     </h1>
                                 </td>
                             </tr>
@@ -467,62 +433,51 @@
                                 <td width=138 style='width:103.5pt;border-top:none;border-left:solid #A6A6A6 1.0pt;
     border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
     padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>Service  </p>
+                                    <p class=TableText>Reimbursement  </p>
                                 </td>
-                                <td width=102 style='width:76.5pt;border-top:none;border-left:none;
+                                <td width=102 style='width:180.5pt;border-top:none;border-left:none;
     border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
     background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
                                     <p class=TableText>
-                                        <input type="checkbox" @(Model.ServiceType == "Service" ? "checked" : "") disabled />
-                                        @*[checked]="@(Model.ServiceType == "Service")"
-                        [disabled]="@(Model.ServiceType != "Service")">*@
+                                        <input type="checkbox"
+                                               @(Model.ServiceType == "REIMBURSEMENT" ? "checked" : "")
+                                               disabled>
                                     </p>
                                 </td>
-                                <td width=126 style='width:94.5pt;border-top:none;border-left:none;
-    border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
-    padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>Both - Service and Reimbursement</p>
-                                </td>
-                                <td width=102 style='width:76.5pt;border-top:none;border-left:none;
-    border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
-    background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>
-                                        <input type="checkbox" @(Model.ServiceType == "Both - Service and Reimbursement" ? "checked" : "") disabled />
-                                        @*checked="@(Model.ServiceType == "Reimbursement")"
-                        disabled="@(Model.ServiceType != "Reimbursement")">*@
-                                    </p>
-                                </td>
-                                <td width=144 style='width:107.85pt;border-top:none;border-left:none;
-    border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
-    padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>Others </p>
-                                </td>
-                                <td width=120 style='width:90.15pt;border-top:none;border-left:none;
-    border-bottom:solid #A6A6A6 1.0pt;border-right:solid #A6A6A6 1.0pt;
-    background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                    <p class=TableText>
-                                        <input type="checkbox" @(Model.ServiceType == "others" ? "checked" : "") disabled />
-                                        @*checked="@(Model.ServiceType == "others")"
-                        [disabled]="@(Model.ServiceType == "others")" />*@
-                                    </p>
-                                </td>
+                                <!-- <td width=126 style='width:94.5pt;border-top:none;border-left:none;
+        border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
+        padding:0in 5.4pt 0in 5.4pt;height:.2in'>
+                    <p class=TableText>Reimbursement</p>
+                  </td> -->
+                                <!-- <td width=102 style='width:76.5pt;border-top:none;border-left:none;
+        border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
+        background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
+                    <p class=TableText>
+                      <input
+                        type="checkbox"
+                        [checked]="dlvDetails.ServiceType === 'Reimbursement'"
+                        [disabled]="dlvDetails.ServiceType != 'Reimbursement'"
+                      >
+                    </p>
+                  </td> -->
+                                <!-- <td width=144 style='width:107.85pt;border-top:none;border-left:none;
+        border-bottom:solid #A6A6A6 1.0pt;border-right:solid #EEECE1 1.0pt;
+        padding:0in 5.4pt 0in 5.4pt;height:.2in'>
+                    <p class=TableText>Others </p>
+                  </td> -->
+                                <!-- <td width=120 style='width:90.15pt;border-top:none;border-left:none;
+        border-bottom:solid #A6A6A6 1.0pt;border-right:solid #A6A6A6 1.0pt;
+        background:#DAEEF3;padding:0in 5.4pt 0in 5.4pt;height:.2in'>
+                    <p class=TableText>
+                      <input
+                        type="checkbox"
+                        [checked]="isOther"
+                        [disabled] ="!isOther"
+                      >
+                    </p>
+                  </td> -->
                             </tr>
-
-                            @if (Model.ServiceType == "others")
-                            {
-                                <tr style='height:.2in'>
-                                    <td width=732 colspan=6 style='width:549.0pt;border-top:none;border-left: solid #A6A6A6 1.0pt;border-bottom:solid #A6A6A6 0.5pt;border-right:solid #A6A6A6 1.0pt;
-    padding:0in 5.4pt 0in 5.4pt;height:.2in'>
-                                        <p class=MsoNormal>
-                                            <span style='font-family:"Arial",sans-serif;'>
-                                                Mention
-                                                in brief (if Others) : @Model.ServiceTypeOther
-                                            </span>
-                                        </p>
-                                    </td>
-                                </tr>
-                            }
-
+                            
                         </table>
 
                         <p class=MsoNormal><b><span style='font-size:6.0pt;font-family:"Arial",sans-serif;'>&nbsp;</span></b></p>
@@ -750,24 +705,24 @@
                                     <span> @Model.GSTClauseText </span>
                                 }
 
-                                @if(Model.IndirectTaxComment != null)
+                                @if (Model.IndirectTaxComment != null)
                                 {
 
-                            <span>
-                                GST credit
-                                will be available on said transaction. Tax rates are subject to change and may
-                                vary at the time of actual provision of services.
-                            </span>
+                                    <span>
+                                        GST credit
+                                        will be available on said transaction. Tax rates are subject to change and may
+                                        vary at the time of actual provision of services.
+                                    </span>
                                 }
-                               
+
                             </span>
                         </p>
-                       @* <p class=MsoNormal style='
+                        <p class=MsoNormal style='
            padding-bottom: 9px;   padding-top: 7px;'>
                             <span style='font-family:"Arial",sans-serif;'>
                                 @Model.IndirectTaxComment
                             </span>
-                        </p>*@
+                        </p>
                         <p class=MsoNormal style='width: 100%; margin: 0 auto; padding-bottom: 9px; margin: 0 auto;    padding-top: 7px;'>
                             <span style='font-size:11pt;font-family:"Arial",sans-serif;'>
                                 I
@@ -977,3 +932,4 @@
 </body>
 
 </html>
+

@@ -183,8 +183,12 @@
     <None Include="Properties\PublishProfiles\IIS Publish.pubxml" />
     <Content Include="Views\Home\E-CHKLST.cshtml" />
     <Content Include="Views\Home\Footer.cshtml" />
-    <Content Include="Views\Home\EREBDLV.cshtml" />
-    <Content Include="Views\Home\EREBCHKLST.cshtml" />
+    <Content Include="Views\Home\RI-DLV.cshtml" />
+    <Content Include="Views\Home\RI-CHKLST.cshtml" />
+    <Content Include="Views\Home\I-DLV.cshtml" />
+    <Content Include="Views\Home\I-CHKLST.cshtml" />
+    <Content Include="Views\Home\RE-DLV.cshtml" />
+    <Content Include="Views\Home\RE-CHKLST.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

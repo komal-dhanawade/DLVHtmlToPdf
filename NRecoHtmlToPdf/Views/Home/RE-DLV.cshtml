@@ -1,8 +1,6 @@
-﻿@model NReco_HtmlToPdf.Models.DLVModel
-
+﻿
 @{
-    ViewBag.Title = "Index";
-    Layout = null;
+    ViewBag.Title = "ExpenseREMB_DLV";
 }
 
 <html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
@@ -228,7 +226,8 @@
                                     <td width=144 style='width:1.5in;border:solid windowtext 1.0pt;border-left:
     none;height:14.0pt'>
                                         <p class=TableHeading>
-                                            Reimbursement by </p>
+                                            Reimbursement by
+                                        </p>
                                     </td>
                                     <td width=228 colspan=2 style='width:171.0pt;border:solid windowtext 1.0pt;
     border-left:none;height:14.0pt'>
@@ -333,7 +332,7 @@
                             <p class=MsoNormal style='text-align:justify; width:97.5%;
             margin-left: 0px;'>
                                 This
-                                Service Agreement (the &quot;Agreement&quot;) is entered into this <span style='color:black'>______________</span>
+                                Reimbursement Agreement (the &quot;Agreement&quot;) is entered into this <span style='color:black'>______________</span>
                                 by and between <span style="font-weight: bold;">SKODA AUTO Volkswagen India Private Limited </span>(formerly
                                 known as Volkswagen India Private Limited)<span style="font-weight: bold;">, </span>a Company incorporated under the Companies Act, 1956 and having its registered office at E1, MIDC Industrial Area, Phase III, Village Nigoje, Mhalunge Kharabwadi, Chakan, Tal Khed, Pune, Maharashtra - 410501  having CIN No U70102PN2007FTC133117 (herein after referred to as <span style="font-weight: bold;">"SAVWIPL"</span> or &quot;<span style="font-weight: bold;">Service Receiver</span> &quot; or &quot;<span style="font-weight: bold;">Customer</span>&quot;<span class=MsoCommentReference><span> </span></span>), which
                                 term shall unless the context otherwise requires mean and include its
@@ -414,45 +413,16 @@
                                 by parties in writing.
                             </p>
 
-                            <p class='MsoListParagraph awg-line'><b>2.<span class="paragraph-Title">&nbsp;Consideration</span></b></p>
+                            <p class='MsoListParagraph awg-line'><b>2.<span class="paragraph-Title">&nbsp;Reimbursement of Expenses</span></b></p>
 
-                            <p class=paragraph-style style='text-align:
-  justify;margin-left: 23px;'>
-                                In consideration of the services to be provided by Service Provider under this Agreement, Service Receiver will pay to the Service
-                                Provider a fixed sum of  <span style='border-bottom: 1px;'>
-                                    <span style="font-weight: bold;">
-                                        @Model.GSTCurrency @Model.TotalPriceAgreed
-                                        for the duration of this Agreement.
-                                    </span>
-                                </span>
-
-                                @if (Model.GSTApplicable == "IGST")
-                                {
-                                    <span>
-                                        @Model.GSTPercentage IGST  i.e.
-                                        <span style="font-weight: bold;">@Model.GSTCurrency @Model.GSTAmount</span>
-                                        will be applicable on the same on reverse charge basis.
-                                    </span>
-                                }
-
-                                else if (Model.GSTApplicable == "CGST + SGST")
-                                {
-                                    <span>
-                                        @Model.GSTPercentage i.e.
-                                        <span style="font-weight: bold;">
-                                            @Model.GSTCurrency @Model.GSTAmount
-                                        </span>
-                                        will be applicable on the same.
-                                    </span>
-                                }
-                                else if (Model.GSTApplicable == "Custom Remarks")
-                                {
-                                    <span>@Model.GSTClauseText</span>
-                                }
-
-                                @Model.IndirectTaxComment Applicable taxes and levies shall be charged as per
-                                prevailing rates. The detailed breakup of these costs is mentioned in the
-                                Annexure-A to this Agreement.
+                            <p class='paragraph-style' style="margin-left: 23px;">
+                                In lieu of payments incurred by
+                                SAVWIPL per Clause 1, <span>@Model.ProviderShortName</span> will reimburse to SAVWIPL an amount of
+                                <b>@Model.GSTCurrency @Model.TotalPriceAgreed</b>. The total reimbursement amount for the entire term of this Agreement
+                                is calculated in the attached <b>Annexure A</b> which shall be paid by <span>@Model.ProviderShortName</span> to SAVWIPL as reimbursement cost.
+                                Any expenses incurred futher for this same activity in 2021 shall be similarly passed on to
+                                <span>@Model.ProviderShortName</span> via subsequent Annexures to this DLV.
+                            </p>
                             </p>
                             <div class="paragraph-style forLeftSpace">@Html.Raw(Model.AdditionalConsideration)</div>
                             <p class='MsoListParagraph  awg-line'>
@@ -513,17 +483,64 @@
                                 </p>
                             }
 
-                            <p class='MsoListParagraph  awg-line'>
 
-                                <b>4.<span class="paragraph-Title">&nbsp;Breach of Agreement</span></b>
+                            <p class='MsoListParagraph  awg-line'><b>4.<span class="paragraph-Title">&nbsp; Liability</span></b></p>
+
+                            <p class='paragraph-style' style="margin-left: 23px;">
+                                The Service Provider shall only be liable in cases of intent and gross negligence, provided that
+                                nothing in this Agreement shall limit any liability which cannot legally be limited, including but not
+                                limited to liability for:
+                            </p>
+
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                a.<span class="paragraph-Title">
+                                    &nbsp; death or personal injury caused by negligence;
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                b.<span class="paragraph-Title">
+                                    &nbsp; any applicable product liability law; and
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                c.<span class="paragraph-Title">
+                                    &nbsp; fraud or fraudulent misrepresentation.
+                                </span>
                             </p>
 
                             <p class='paragraph-style' style="margin-left: 23px;">
-                                In case one Party fails to perform its obligations under this
-                                Agreement, or rendered non-conforming performances, it shall bear respective
-                                liabilities for breach of agreement in accordance with the provisions of this
-                                Agreement and under the laws in India.
+                                To the extent permitted by law, neither Party shall in any circumstances (including for negligence
+                                and breach of statutory duty howsoever arising) be liable to the other Party for
                             </p>
+
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                a.<span class="paragraph-Title">
+                                    &nbsp; any loss (whether direct or indirect) of profits, business, business opportunities, revenue,
+                                    turnover, reputation, anticipated savings or goodwill;
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                b.<span class="paragraph-Title">
+                                    &nbsp; any consequential damage;
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                c.<span class="paragraph-Title">
+                                    &nbsp; any loss or corruption (whether direct or indirect) of Data or any other information;
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                d.<span class="paragraph-Title">
+                                    &nbsp;any loss (whether direct or indirect) of anticipated savings or wasted expenditure (including
+                                    management time, internal administration or overhead costs); or
+                                </span>
+                            </p>
+                            <p class='MsoListParagraph  awg-line' style="margin-left: 23px;">
+                                e.<span class="paragraph-Title">
+                                    &nbsp;any loss or liability (whether direct or indirect) under or in relation to any other contract.
+                                </span>
+                            </p>
+
 
 
                             <p class='MsoListParagraph awg-line'>
@@ -673,13 +690,8 @@
                                 </p>
 
                                 <p class="MsoListParagraph pd-btm">
-                                    <span>v.</span><span class="paragraph-Title2 pd-29" style="font-weight: bold;"> Withholding Tax Clause.</span><span class="paragraph-style" style=" line-height: 17pt;">
-                                        All payments under this Agreement will be made without any deduction or withholding for or
-                                        on account of any Tax unless such deduction or withholding is required by any
-                                        applicable law.  In such a case, deductor shall pay the full amount required to
-                                        be deducted or withheld to the relevant tax authorities. The deductor shall
-                                        promptly forward a certificate to the deductee / Service Provider, evidencing
-                                        such payments to the tax authorities.
+                                    <span>v.</span><span class="paragraph-Title2 pd-29" style="font-weight: bold;"> Interest for Late Payment</span><span class="paragraph-style" style=" line-height: 17pt;">
+                                        SAVWIPL shall make the payment to the _____ within 30 days from the date of receipt of invoice. In case the payment is delayed for more than 30 days as mentioned above, _____ shall be entitled to charge interest at the prevailing market rate as suggested by Group Treasury department, for each day of delay. SAVWIPL has agreed to pay for interest on late payment of the invoices raised on it.
                                     </span>
                                 </p>
                             </div>
@@ -791,7 +803,7 @@
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;border-bottom:
 solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
-                                            <!--{{dlvDetails.secondPartySignature01}}-->
+                                            
                                             <p class=MsoNormal style="margin-top: 66pt;"><span class=DLVBold></span></p>
 
                                         </td>
@@ -800,7 +812,7 @@ solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
                                         </td>
                                         <td width=180 valign=top style='width:135.15pt;border:none;border-bottom:
 solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
-                                            <!--{{dlvDetails.secondPartySignature02}}-->
+                                           
                                             <p class=MsoNormal style="margin-top: 66pt;"><span class=DLVBold></span></p>
 
                                         </td>
@@ -816,8 +828,12 @@ padding:0in 5.4pt 0in 5.4pt'>
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt; "><span class=DLVBold>@Model.secondPartySignature01</span></p>
-                                            <p>@Model.signatoryDesignation01 @if (!string.IsNullOrEmpty(Model.signatoryDepartment01))
-                                            {<span>,</span>} @Model.signatoryDepartment01 </p>
+                                            <p>
+                                                @Model.signatoryDesignation01 @if (!string.IsNullOrEmpty(Model.signatoryDepartment01))
+                                                {<span>,</span>} @Model.signatoryDepartment01
+
+
+                                            </p>
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold></span></p>
@@ -826,31 +842,31 @@ padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:5pt;"><span class=DLVBold>@Model.secondPartySignature02</span></p>
                                             <p>
                                                 @Model.signatoryDesignation02@if (!string.IsNullOrEmpty(Model.signatoryDepartment02))
-                                            {<span>,</span>} @Model.signatoryDepartment02
-                                        </p>
-                                    </td>
-                                    <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
-                                        <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
-                                    </td>
-                                    <td width=204 valign=top style='width:152.9pt;border:none;
+                                                {<span>,</span>} @Model.signatoryDepartment02
+                                            </p>
+                                        </td>
+                                        <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
+                                            <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
+                                        </td>
+                                        <td width=204 valign=top style='width:152.9pt;border:none;
 padding:0in 5.4pt 0in 5.4pt'>
-                                        <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
-                                    </td>
-                                </tr>
-                                <!-- second signature tr END  -->
-                            </table>
+                                            <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
+                                        </td>
+                                    </tr>
+                                    <!-- second signature tr END  -->
+                                </table>
 
-                        </div>
-                        <p style="page-break-before: always!important;"> &nbsp;</p>
-
-                        <div style=" width: 96.5%;margin: 0 auto;">
-                            <p class="MsoNormal" align=center style='margin-left:.25in; margin: 0 auto;
-  text-align:center;margin-bottom: 12pt!important;'><span style="font-weight: bold;">ANNEXURE A</span></p>
-                            <div class="wrappper-table">
-                                <p class="MsoNormal"><div class="MsoPlaceholderText forAnexureTbl">@Html.Raw(@Model.ConsiderationText)</div></p>
                             </div>
-                        </div>
-                    </div><!--end of border div-->
+                            <p style="page-break-before: always!important;"> &nbsp;</p>
+
+                            <div style=" width: 96.5%;margin: 0 auto;">
+                                <p class="MsoNormal" align=center style='margin-left:.25in; margin: 0 auto;
+  text-align:center;margin-bottom: 12pt!important;'><span style="font-weight: bold;">ANNEXURE A</span></p>
+                                <div class="wrappper-table">
+                                    <p class="MsoNormal"><div class="MsoPlaceholderText forAnexureTbl">@Html.Raw(@Model.ConsiderationText)</div></p>
+                                </div>
+                            </div>
+                        </div><!--end of border div-->
 
                 </div>
             </div>
@@ -859,3 +875,4 @@ padding:0in 5.4pt 0in 5.4pt'>
 </div>
 </body>
 </html>
+

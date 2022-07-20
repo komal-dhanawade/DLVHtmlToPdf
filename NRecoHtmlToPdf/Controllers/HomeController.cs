@@ -15,12 +15,22 @@ using HttpPostAttribute = System.Web.Http.HttpPostAttribute;
 using NonActionAttribute = System.Web.Http.NonActionAttribute;
 using System.Web.Http.Cors;
 using HttpGetAttribute = System.Web.Http.HttpGetAttribute;
+using System.Web.Http.Description;
+using NReco_HtmlToPdf.Helpers;
+using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace NReco_HtmlToPdf.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class HomeController : ApiController
     {
+        private string _actionUrl;
+        public HomeController()
+        {
+            _actionUrl = WebConfigurationManager.AppSettings["PDFGetPageNumberApplicationUrl"];
+        }
+
         // GET: Home
         [HttpGet]
         [Route("api/CheckResponse")]
@@ -53,33 +63,79 @@ namespace NReco_HtmlToPdf.Controllers
             }
         }
 
-        
+        [ResponseType(typeof(PDFResponseModel))]
         [HttpPost]
         [Route("api/GetPdfFile")]
-        public HttpResponseMessage GetPDFFile(DLVModel model)
+        public async Task<IHttpActionResult> GetPDFFile(DLVModel model)
         {
+            PDFResponseModel pdfModel = new PDFResponseModel();
             try
             {
                 var renderedView = RenderViewToString("home", model.Configurations != null ? model.Configurations.ViewName : "", model);
                 var pdfBytes = ConvertHtmlToPdf(renderedView, model);
-                var result = new HttpResponseMessage(HttpStatusCode.OK)
-                {
-                    Content = new ByteArrayContent(pdfBytes)
-                };
-                result.Content.Headers.ContentDisposition =
-                    new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment")
-                    {
-                        FileName = "DLV.pdf",
-                    };
+                var pdfString = Convert.ToBase64String(pdfBytes);
+                //var result = new HttpResponseMessage(HttpStatusCode.OK)
+                //{
+                //    Content = new ByteArrayContent(pdfBytes)
+                //};
+                //result.Content.Headers.ContentDisposition =
+                //    new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment")
+                //    {
+                //        FileName = "DLV.pdf",
+                //    };
 
-                result.Content.Headers.ContentType =
-                    new MediaTypeHeaderValue("application/pdf");
+                //result.Content.Headers.ContentType =
+                //    new MediaTypeHeaderValue("application/pdf");
 
-                return result;
+                //pdfModel.PDFFile = (HttpPostedFileBase)new HttpPostedFileBaseCustom(pdfBytes);
+                pdfModel.PDFBase64String = pdfString;
+                pdfModel.KeywordSearched = model.PDFOptions != null ? model.PDFOptions.Keyword : "";
+
+                if (!string.IsNullOrEmpty(pdfModel.KeywordSearched))
+                    pdfModel = await GetPDFPageNumber(pdfModel);
+
+                return Ok(pdfModel);
             }
             catch(Exception ex)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError, ex.Message);
+                pdfModel.StatusCode = HttpStatusCode.BadRequest;
+                pdfModel.ErrorMessage = ex.Message;
+                return Ok(pdfModel);
+            }
+        }
+
+        [NonAction]
+        public async Task<PDFResponseModel> GetPDFPageNumber(PDFResponseModel pdfDetails)
+        {
+            try
+            {
+                HttpContent keywordContent = new StringContent(pdfDetails.KeywordSearched);
+                HttpContent pdfBase64Content = new StringContent(pdfDetails.PDFBase64String);
+                using (var client = new HttpClient())
+                using (var formData = new MultipartFormDataContent())
+                {
+                    formData.Add(keywordContent, "Keyword");
+                    formData.Add(pdfBase64Content, "PDFBase64String");
+                    client.Timeout = TimeSpan.FromMinutes(1);
+                    var response = await client.PostAsync(_actionUrl, formData);
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        pdfDetails.StatusCode = HttpStatusCode.Conflict;
+                        pdfDetails.ErrorMessage = "Failed while getting page number";
+                        pdfDetails.PageNumberOfKeyword = "0";
+                        return pdfDetails;
+                    }
+                    pdfDetails.StatusCode = HttpStatusCode.OK;
+                    pdfDetails.PageNumberOfKeyword = await response.Content.ReadAsStringAsync();
+                }
+                return pdfDetails;
+            }
+            catch(Exception ex)
+            {
+                pdfDetails.StatusCode = HttpStatusCode.BadRequest;
+                pdfDetails.ErrorMessage = ex.Message;
+                pdfDetails.PageNumberOfKeyword = "0";
+                return pdfDetails;
             }
         }
 

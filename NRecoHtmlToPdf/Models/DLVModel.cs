@@ -105,7 +105,87 @@ namespace NReco_HtmlToPdf.Models
         public string signatoryDesignation02 { get; set; }
         public string signatoryDepartment02 { get; set; }
         public string ServiceTypeOther { get; set; }
+        public DirectTaxApprover directTaxApprover { get; set; }
+
+        public IndirectTaxApprover indirectTaxApprover { get; set; }
+        public CustomsApprover customsApprover { get; set; }
+        public CostCenterHOD costCenterHOD { get; set; }
+        public ControllingAprrrover controllingAprrrover { get; set; }
+
+        public CfoApproval cfoApproval { get; set; }
+
+    }
+
+    public class CfoApproval
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
+    }
+    public class ControllingAprrrover
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
+    }
+    public class CostCenterHOD
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
+
+    }
+
+    public class CustomsApprover
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
         public PDFOptions PDFOptions { get; set; }
+    }
+
+    public class IndirectTaxApprover
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
+    }
+
+    public class DirectTaxApprover
+    {
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
     }
     public class DLVCreator
     {
@@ -115,6 +195,9 @@ namespace NReco_HtmlToPdf.Models
         [JsonProperty("odata.id")]
         public string OdataId { get; set; }
         public string Title { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
     }
 
     public class LStatus
@@ -125,6 +208,9 @@ namespace NReco_HtmlToPdf.Models
         [JsonProperty("odata.id")]
         public string OdataId { get; set; }
         public string StatusName { get; set; }
+
+        [JsonProperty("Designation")]
+        public string Designation { get; set; }
     }
 
     public class Settings

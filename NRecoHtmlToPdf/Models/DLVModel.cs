@@ -105,6 +105,8 @@ namespace NReco_HtmlToPdf.Models
         public string signatoryDesignation02 { get; set; }
         public string signatoryDepartment02 { get; set; }
         public string ServiceTypeOther { get; set; }
+
+        public PDFOptions PDFOptions { get; set; }
         public DirectTaxApprover directTaxApprover { get; set; }
 
         public IndirectTaxApprover indirectTaxApprover { get; set; }
@@ -112,7 +114,7 @@ namespace NReco_HtmlToPdf.Models
         public CostCenterHOD costCenterHOD { get; set; }
         public ControllingAprrrover controllingAprrrover { get; set; }
 
-        public CfoApproval cfoApproval { get; set; }
+        public CfoApproval cfoApproval { get; set; }      
 
     }
 

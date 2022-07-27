@@ -190,7 +190,7 @@
             margin-bottom: 15px;
         }
        .MsoNormal u span {
-            text-align: left !important;
+            text-align: justify !important;
             word-spacing: normal !important;
             width: 100%;
            
@@ -391,14 +391,14 @@
                                 </b>
                             </p>
                             <p class=MsoNormal style='text-align: justify; width: 495pt; margin: 0 auto; font-family: "Arial",sans-serif; margin-left: 1.5rem;'>
-                                <span>
+                                <span style="text-align: justify">
                                     The  Service Provider hereby agrees to provide following services to Service
                                     Receiver:
                                 </span>
                             </p>
 
                             <div class=wrappper-table style='text-align: justify; width: 93%; font-family: "Arial",sans-serif; margin-left: 1.6rem;'>
-                                <div class="scopeTbl" id="ScopeText">@Html.Raw(Model.ScopeText)</div>
+                                <div class="scopeTbl" id="ScopeText" style="text-align: justify">@Html.Raw(Model.ScopeText)</div>
                             </div>
 
                             <!--<p class=MsoNormal style='margin-bottom:12.0pt;margin-left:.25in;text-align:-->
@@ -459,7 +459,7 @@
                             </p>
                             @if (Model.isPerpetualDLV == "No")
                             {
-                                <p class=paragraph-style style="margin-left: 23px;">
+                                <p class=paragraph-style style="margin-left: 23px; text-align: justify;">
                                     This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
                                     and shall be valid up to  @Model.DLVValidTill.ToLocalTime().ToString("dd-MMM-yyyy") unless terminated by either of the party by
                                     giving
@@ -477,7 +477,7 @@
                             }
                             else if (Model.isPerpetualDLV == "Yes")
                             {
-                                <p class=paragraph-style style="margin-left: 23px;">
+                                <p class=paragraph-style style="margin-left: 23px; text-align: justify;">
                                     This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
                                     and shall be valid perpetually unless terminated by either of the party by
                                     giving
@@ -495,7 +495,7 @@
                             }
                             else if (Model.isPerpetualDLV == "Completion of obligation")
                             {
-                        <p class=paragraph-style style="margin-left: 23px;">
+                        <p class=paragraph-style style="margin-left: 23px; text-align:justify">
                             This Agreement shall be effective from @Model.DLVValidFrom.ToLocalTime().ToString("dd-MMM-yyyy")
                             and shall be valid till completion of obligation unless terminated by either of the party by giving
                             giving
@@ -517,7 +517,7 @@
                                 <b>4.<span class="paragraph-Title">&nbsp;Breach of Agreement</span></b>
                             </p>
 
-                            <p class='paragraph-style' style="margin-left: 23px;">
+                            <p class='paragraph-style' style="margin-left: 23px; text-align: justify;">
                                 In case one Party fails to perform its obligations under this
                                 Agreement, or rendered non-conforming performances, it shall bear respective
                                 liabilities for breach of agreement in accordance with the provisions of this
@@ -529,7 +529,7 @@
                                 <b>5.<span class="paragraph-Title">&nbsp;Independent Contractor</span></b>
                             </p>
 
-                            <p class='paragraph-style' style="margin-left: 23px;">
+                            <p class='paragraph-style' style="margin-left: 23px; text-align: justify;">
                                 Nothing herein shall be construed to
                                 create an employer-employee relationship between SAVWIPL  and <span>@Model.ProviderShortName</span>. <span>@Model.ProviderShortName</span> is an independent Company
                                 and not an employee of SAVWIPL . The consideration set forth in Clause 2 shall
@@ -540,7 +540,7 @@
                             <p class='MsoListParagraph awg-line'>
                                 <b>6.<span class='paragraph-Title'>&nbsp;Notice</span></b>
                             </p>
-                            <p class='paragraph-style' style="margin-left: 23px;">
+                            <p class='paragraph-style' style="margin-left: 23px; text-align: justify;">
                                 Any notice or communication permitted or
                                 required by this Agreement shall be deemed effective when received via email or
                                 personally delivered or deposited, postage prepaid, in the first class mail
@@ -632,8 +632,8 @@
                                     <b>7.<span class="paragraph-Title">&nbsp;Miscellaneous</span></b>
                                 </p>
 
-                                <p class="MsoListParagraph pd-btm" >
-                                    <span>i.</span><span class="paragraph-Title2"> Entire Agreement and Amendments.</span><span style=" line-height: 17pt;">
+                                <p class="MsoListParagraph pd-btm" style="text-align: justify;">
+                                    <span>i.</span><span class="paragraph-Title2"> Entire Agreement and Amendments.</span><span style=" text-align:justify; line-height: 17pt;">
                                         This Agreement constitutes the entire agreement of the parties with regard to the
                                         subject matter hereof, and replaces and supersedes all other agreements or
                                         understandings, whether written or oral. No amendment or extension of the
@@ -642,8 +642,8 @@
                                 </p>
 
 
-                                <p class="MsoListParagraph pd-btm">
-                                    <span>ii.</span><span style="font-weight: bold;" class="paragraph-Title2">Binding Effect, Assignment.</span><span class="paragraph-style" style=" line-height: 17pt;">
+                                <p class="MsoListParagraph pd-btm" style="text-align: justify;">
+                                    <span>ii.</span><span style="font-weight: bold;" class="paragraph-Title2">Binding Effect, Assignment.</span><span class="paragraph-style" style="text-align:justify; line-height: 17pt;">
                                         This Agreement shall be binding upon and shall inure to the benefit of Parties and
                                         to their respective successors and assigns. Nothing in this Agreement shall be
                                         construed to permit the assignment by SAVWIPL or @Model.ProviderShortName of any of its rights
@@ -652,16 +652,16 @@
                                     </span>
                                 </p>
 
-                                <p class="MsoListParagraph pd-btm">
-                                    <span>iii.</span><span class="paragraph-Title2 pd-29">Governing Law, Severability.</span><span class="paragraph-style" style=" line-height: 17pt;">
+                                <p class="MsoListParagraph pd-btm" style="text-align: justify;">
+                                    <span>iii.</span><span class="paragraph-Title2 pd-29">Governing Law, Severability.</span><span class="paragraph-style" style="text-align: justify; line-height: 17pt;">
                                         This Agreement shall be governed by the laws of India. The invalidity or
                                         unenforceability of any provision of the Agreement shall not affect the
                                         validity or enforceability of any other provision.
                                     </span>
                                 </p>
 
-                                <p class="MsoListParagraph pd-btm">
-                                    <span>iv.</span><span class="paragraph-Title2 pd-29">Confidentiality.</span><span class="paragraph-style" style=" line-height: 17pt;">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span style=" line-height: 17pt;">
+                                <p class="MsoListParagraph pd-btm" style="text-align: justify;">
+                                    <span>iv.</span><span class="paragraph-Title2 pd-29">Confidentiality.</span><span class="paragraph-style" style="text-align: justify; line-height: 17pt;">Each Party shall maintain as confidential, all information disclosed under this Agreement.</span><span style=" line-height: 17pt;">
                                         The receiving Party recognizes that
                                         improper use of the Information disclosed hereunder shall cause irreparable
                                         damage to disclosing Party and that the recovery of monetary damages may be an
@@ -671,8 +671,8 @@
                                     </span>
                                 </p>
 
-                                <p class="MsoListParagraph pd-btm">
-                                    <span>v.</span><span class="paragraph-Title2 pd-29" style="font-weight: bold;"> Withholding Tax Clause.</span><span class="paragraph-style" style=" line-height: 17pt;">
+                                <p class="MsoListParagraph pd-btm" style="text-align: justify;">
+                                    <span>v.</span><span class="paragraph-Title2 pd-29" style="font-weight: bold;"> Withholding Tax Clause.</span><span class="paragraph-style" style="text-align: justify; line-height: 17pt;">
                                         All payments under this Agreement will be made without any deduction or withholding for or
                                         on account of any Tax unless such deduction or withholding is required by any
                                         applicable law.  In such a case, deductor shall pay the full amount required to
@@ -684,7 +684,7 @@
                             </div>
                             <p class=MsoNormal>&nbsp;</p>
 
-                            <div class="miscelleneous-section wrappper-table">
+                            <div class="miscelleneous-section wrappper-table" style="text-align: justify;">
 
                                 <div class=MsoNormal>
                                     @if (!string.IsNullOrEmpty(Model.MiscelleneousClauses))
@@ -699,7 +699,7 @@
                                     
                                 <p class=MsoNormal>&nbsp;</p>
 
-                                <p class=MsoNormal style='text-align:left;width: 100%; margin: 0 auto;'>
+                                <p class=MsoNormal style='text-align:justify;width: 100%; margin: 0 auto;'>
                                     WHEREFORE,
                                     the parties have executed this Agreement as of the date first written above.
                                 </p>
@@ -738,19 +738,19 @@
                                     </tr> 
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
-                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.costCenterHOD?.Name)</span></p>
+                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.costCenterHOD?.Name), HOD</span></p>
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
                                         </td>
                                         <td width=180 valign=top style='width: 135.15pt;margin-bottom:20px; border: none; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
-                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.customsApprover?.Name)</span></p>
+                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.customsApprover?.Name), Head-controlling</span></p>
                                         </td>
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
                                         </td>
                                         <td width=204 valign=top style='width: 152.9pt; border: none; margin-bottom: 20px; padding: 0in 5.4pt 0in 5.4pt;'>
-                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.cfoApproval?.Name)</span></p>
+                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.cfoApproval?.Name), ED-Fianance & IT</span></p>
                                         </td>
                                     </tr>
 

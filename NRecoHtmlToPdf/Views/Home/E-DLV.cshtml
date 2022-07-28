@@ -11,7 +11,7 @@
     @*<meta http-equiv=Content-Type content="text/html; charset=windows-1252">*@
     @*<meta name=Generator content="Microsoft Word 15 (filtered)">*@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>r - Income DLV Template.docx</title>
+    <title>Expense DLV Template.docx</title>
     <link href="~/assets/css/pdf.css" rel="stylesheet" type="text/css" />
 
     <style>
@@ -718,24 +718,25 @@
                                        style='border-collapse:collapse;border:none ;width: 100%;'>
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;border-bottom:
-    solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
-                                            <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px;"><span class=DLVBold>[@(Model.costCenterHOD?.Name)]</span></p>
+    solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt; text-align: center;'>
+                                            <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px;"><span class=DLVBold>[Cost Center HOD]</span></p>
                                         </td>
                                         <td width=24 valign=top style='width: 17.85pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal style="margin-top: 66pt;"><span class=DLVBold></span></p>
                                         </td>
-                                        <td width=180 valign=top style='width:135.15pt;border:none;border-bottom:
-    solid windowtext 1.5pt;padding:0in 5.4pt 0in 5.4pt'>
-                                            <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px;"><span class=DLVBold>[@(Model.controllingAprrrover?.Name)]</span></p>
+                                        <td width=180 valign=top style='width: 135.15pt; border: none; border-bottom: solid windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt; text-align: center;'>
+                                            <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px;"><span class=DLVBold>[Controlling Approver]</span></p>
                                         </td>
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
                                         </td>
-                                        <td width=204 valign=top style='width:152.9pt;border:none;  padding: 0in 5.4pt 0in 5.4pt; border-bottom:solid windowtext 1.5pt;
-    padding:0in 5.4pt 0in 5.4pt'>
-                                            <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px; "><span class=DLVBold>[@(Model.cfoApproval?.Name)]</span></p>
-                                        </td>
-                                    </tr> 
+                                        @if (Model.cfoApproval != null)
+                                        {
+                                            <td width=204 valign=top style='width: 152.9pt; border: none; text-align: center; padding: 0in 5.4pt 0in 5.4pt; border-bottom: solid windowtext 1.5pt; padding: 0in 5.4pt 0in 5.4pt'>
+                                                <p class=MsoNormal style="margin-top: 66pt; margin-bottom: 20px; "><span class=DLVBold>[CFO Approver]</span></p>
+                                            </td>
+                                            }
+                                        </tr> 
                                     <tr>
                                         <td width=180 valign=top style='width:134.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                                             <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.costCenterHOD?.Name), HOD</span></p>
@@ -749,10 +750,13 @@
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
                                         </td>
-                                        <td width=204 valign=top style='width: 152.9pt; border: none; margin-bottom: 20px; padding: 0in 5.4pt 0in 5.4pt;'>
-                                            <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.cfoApproval?.Name), ED-Fianance & IT</span></p>
-                                        </td>
-                                    </tr>
+                                        @if (Model.cfoApproval != null)
+                                        {
+                                            <td width=204 valign=top style='width: 152.9pt; border: none; margin-bottom: 20px; padding: 0in 5.4pt 0in 5.4pt;'>
+                                                <p class=MsoNormal style="margin-top:20px;"><span class=DLVBold>@(Model.cfoApproval?.Name), ED-Fianance & IT</span></p>
+                                            </td>
+                                            }
+                                        </tr>
 
                                     <tr>
                                         <td width=180 valign=top style='width: 134.75pt; padding: 0in 5.4pt 0in 5.4pt; border: none;'>
@@ -771,12 +775,15 @@
                                         <td width=24 valign=top style='width: 18.1pt; padding: 0in 5.4pt 0in 5.4pt; border: none; margin-top:15px'>
                                             <p class=MsoNormal><span class=DLVBold>&nbsp;</span></p>
                                         </td>
-                                        <td width=204 valign=top style='width: 152.9pt; padding: 0in 5.4pt 0in 5.4pt; border:none;'>
-                                            <p class=MsoNormal align=center style='text-align:center'>
-                                                <span class=DLVBold>@(Model.cfoApproval?.Designation)</span>
-                                            </p>
-                                        </td>
-                                    </tr>
+                                        @if (Model.cfoApproval != null)
+                                        {
+                                            <td width=204 valign=top style='width: 152.9pt; padding: 0in 5.4pt 0in 5.4pt; border:none;'>
+                                                <p class=MsoNormal align=center style='text-align:center'>
+                                                    <span class=DLVBold>@(Model.cfoApproval?.Designation)</span>
+                                                </p>
+                                            </td>
+                                        }
+                                        </tr>
                                 </table>
                             </div>
                             <p class=MsoNormal style='text-indent:.25in'><b>&nbsp;</b></p>
